@@ -16,12 +16,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get("/api/getAll", (req, res) => {
   const sqlQuery = "SELECT * FROM guru"
 
-  db.query(sqlQuery, (err, result) => {
+  db.query(sqlQuery, (err, guru) => {
     if (err) {
       console.log(err)
     } else {
-      res.send(result)
-      console.log(result)
+      res.status(200).json({ guru, message: "Get all guru" })
+      console.log(guru)
     }
   })
 })
@@ -31,12 +31,12 @@ app.get("/api/getGuru/:id_guru", (req, res) => {
   const idGuru = req.params.id_guru;
 
   const sqlQuery = "SELECT * FROM guru WHERE id_guru = ?"
-  db.query(sqlQuery, idGuru, (err, result) => {
+  db.query(sqlQuery, idGuru, (err, guru) => {
     if (err) {
       console.log(err)
     } else {
-      res.send(result)
-      console.log(result)
+      res.status(200).json({ guru, message: "Get single guru" })
+      console.log(guru)
     }
   })
 })
@@ -48,12 +48,12 @@ app.post("/api/createGuru", (req, res) => {
   const sekolahGuru = req.body.sekolah_guru;
 
   const sqlQuery = "INSERT INTO guru (nama_guru, mapel_guru, sekolah_guru) VALUE (?, ?, ?)"
-  db.query(sqlQuery, [namaGuru, mapelGuru, sekolahGuru], (err, result) => {
+  db.query(sqlQuery, [namaGuru, mapelGuru, sekolahGuru], (err, data) => {
     if (err) {
       console.log(err)
     } else {
-      res.send(result)
-      console.log(result)
+      res.status(200).json({ data, message: "Success add new guru" })
+      console.log(data)
     }
   })
 })
@@ -66,12 +66,12 @@ app.put("/api/updateGuru", (req, res) => {
   const idGuru = req.body.id_guru;
 
   const sqlQuery = "UPDATE guru SET nama_guru = ?, mapel_guru = ?, sekolah_guru = ? WHERE id_guru = ?";
-  db.query(sqlQuery, [namaGuru, mapelGuru, sekolahGuru, idGuru], (err, result) => {
+  db.query(sqlQuery, [namaGuru, mapelGuru, sekolahGuru, idGuru], (err, data) => {
     if (err) {
       console.log(err)
     } else {
-      res.send(result)
-      console.log(result)
+      res.status(200).json({ data, message: "Success update guru" });
+      console.log(data);
     }
   })
 })
@@ -82,12 +82,12 @@ app.delete("/api/deleteGuru", (req, res) => {
 
   const sqlQuery = "DELETE FROM guru WHERE id_guru = ?"
 
-  db.query(sqlQuery, idGuru, (err, result) => {
+  db.query(sqlQuery, idGuru, (err, data) => {
     if (err) {
       console.log(err)
     } else {
-      res.send(result)
-      console.log(result)
+      res.status(200).json({ message: "Success delete guru" });
+      console.log(data)
     }
   })
 })
