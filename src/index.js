@@ -19,7 +19,6 @@ app.get("/api/guru/v1/", (req, res) => {
       console.log(err);
     } else {
       res.status(200).json({ guru, message: "Get all guru" });
-      console.log(guru);
     }
   });
 });
@@ -34,13 +33,12 @@ app.get("/api/guru/v1/:id_guru", (req, res) => {
       console.log(err);
     } else {
       res.status(200).json({ guru, message: "Get single guru" });
-      console.log(guru);
     }
   });
 });
 
 // Create Guru
-app.post("/api/guru/v1/create", (req, res) => {
+app.post("/api/guru/v1/", (req, res) => {
   const namaGuru = req.body.nama_guru;
   const mapelGuru = req.body.mapel_guru;
   const sekolahGuru = req.body.sekolah_guru;
@@ -51,14 +49,13 @@ app.post("/api/guru/v1/create", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.status(200).json({ data, message: "Success add new guru" });
-      console.log(data);
+      res.status(200).json({ message: "Success add new guru" });
     }
   });
 });
 
 // Update Guru by ID
-app.put("/api/guru/v1/:id_guru/update", (req, res) => {
+app.put("/api/guru/v1/:id_guru", (req, res) => {
   const namaGuru = req.body.nama_guru;
   const mapelGuru = req.body.mapel_guru;
   const sekolahGuru = req.body.sekolah_guru;
@@ -73,8 +70,7 @@ app.put("/api/guru/v1/:id_guru/update", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.status(200).json({ data, message: "Success update guru" });
-        console.log(data);
+        res.status(200).json({ message: "Success update guru" });
       }
     }
   );
@@ -91,7 +87,6 @@ app.delete("/api/guru/v1/:id_guru", (req, res) => {
       console.log(err);
     } else {
       res.status(200).json({ message: "Success delete guru" });
-      console.log(data);
     }
   });
 });

@@ -73,12 +73,14 @@ Response :
 
 ```json
 {
-  "guru": {
-    "id_guru": "number",
-    "nama_guru": "string",
-    "mapel_guru": "string",
-    "sekolah_guru": "string"
-  },
+  "guru": [
+    {
+      "id_guru": "number",
+      "nama_guru": "string",
+      "mapel_guru": "string",
+      "sekolah_guru": "string"
+    }
+  ],
   "message": "string"
 }
 ```
@@ -88,7 +90,7 @@ Response :
 Request :
 
 - Method : POST
-- Endpoint : `/api/guru/v1/create`
+- Endpoint : `/api/guru/v1`
 - Header :
   - Content-Type: application/json
   - Accept: application/json
@@ -106,12 +108,6 @@ Response :
 
 ```json
 {
-  "data": {
-    "id_guru": "number",
-    "nama_guru": "string",
-    "mapel_guru": "string",
-    "sekolah_guru": "string"
-  },
   "message": "string"
 }
 ```
@@ -121,7 +117,7 @@ Response :
 Request :
 
 - Method : PUT
-- Endpoint : `/api/guru/v1/{id_guru}/update`
+- Endpoint : `/api/guru/v1/{id_guru}`
 - Header :
   - Content-Type: application/json
   - Accept: application/json
