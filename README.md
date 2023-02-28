@@ -2,6 +2,30 @@
 
 Click Use this api and then create new repository
 
+SQL Command Syntax
+
+```bash
+  # create database
+  CREATE DATABASE (database_name);
+  
+  # create table
+  CREATE TABLE `guru` (
+  `id_guru` int(11) AUTO_INCREMENT PRIMARY_KEY,
+  `nama_guru` varchar(255),
+  `mapel_guru` varchar(255),
+  `sekolah_guru` varchar(255)
+  );
+
+  # insert guru
+  INSERT INTO 'guru' (nama_guru, mapel_guru, sekolah_guru) VALUES (?, ?, ?)
+  
+  # update guru
+  UPDATE 'guru' SET nama_guru = ?, mapel_guru = ?, sekolah_guru = ? WHERE id_guru = ?
+  
+  # delete guru
+  DELETE FROM 'guru' WHERE id_guru = ?
+```
+
 Install `node_modules` on this project
 
 ```bash
