@@ -17,13 +17,13 @@ SQL Command Syntax
   );
 
   # insert guru
-  INSERT INTO 'guru' (nama_guru, mapel_guru, sekolah_guru) VALUES (?, ?, ?)
+  INSERT INTO 'guru' (nama_guru, mapel_guru, sekolah_guru) VALUES (?, ?, ?);
   
   # update guru
-  UPDATE 'guru' SET nama_guru = ?, mapel_guru = ?, sekolah_guru = ? WHERE id_guru = ?
+  UPDATE 'guru' SET nama_guru = ?, mapel_guru = ?, sekolah_guru = ? WHERE id_guru = ?;
   
   # delete guru
-  DELETE FROM 'guru' WHERE id_guru = ?
+  DELETE FROM 'guru' WHERE id_guru = ?;
 ```
 
 Install `node_modules` on this project
